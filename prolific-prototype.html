@@ -73,15 +73,6 @@
         Thank you for participating! Press any key to finish.`
     }; 
 
-    /* build timeline */
-    timeline.push(welcome);
-    timeline.push(audioResponseTimeline)
-    timeline.push(end_message);  
-
-    jsPsych.run(timeline); 
-
-    
-
     /* generate unique filename */
     const subject_id = jsPsych.randomization.randomID(10);
     const filename = `${subject_id}.csv`;
@@ -94,6 +85,14 @@
         filename: filename,
         data_string: ()=>jsPsych.data.get().filter({task: 'question'}).csv()
     }; 
+
+    /* build timeline */
+    timeline.push(welcome);
+    timeline.push(audioResponseTimeline)
+    timeline.push(end_message);  
+    timeline.push(save_data); 
+
+    jsPsych.run(timeline); 
 
   </script>
 </html>
