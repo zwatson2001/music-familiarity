@@ -127,11 +127,22 @@ var jsPsych = initJsPsych({
     
     timeline.push(welcome);
     timeline.push(audioResponseTimeline); 
-    timeline.push(end_message);  
+    timeline.push(end_message);
 
     jsPsych.run(timeline); 
 
-    /* runtime: 26 minutes */ 
+    /* generate unique filename */
+    const subject_id = jsPsych.randomization.randomID(10);
+    const filename = `${subject_id}.csv`;
+            
+    /* send data to OSF */
+   const save_data = {
+        type: jsPsychPipe,
+        action: "save",
+        experiment_id: "EhlkOUVAPFEt",
+        filename: filename,
+        data_string: ()=>jsPsych.data.get().filter({task: 'question'}).csv()
+    };
 
   </script>
 </html>
