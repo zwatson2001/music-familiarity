@@ -12,20 +12,6 @@
 
 var jsPsych = initJsPsych({
   on_finish: function() {
-     /* generate unique filename */
-    const subject_id = jsPsych.randomization.randomID(10);
-    const filename = `${subject_id}.csv`;
-            
-    /* send data to OSF */
-   const save_data = {
-        type: jsPsychPipe,
-        action: "save",
-        experiment_id: "EhlkOUVAPFEt",
-        filename: filename,
-        data_string: ()=>jsPsych.data.get().csv()
-    };
-    
-    window.location = "https://app.prolific.com/submissions/complete?cc=CDCI3CT9"
   }
 });
     var timeline = [];
@@ -146,6 +132,21 @@ var jsPsych = initJsPsych({
     timeline.push(end_message);
 
     jsPsych.run(timeline); 
+
+    /* generate unique filename */
+    const subject_id = jsPsych.randomization.randomID(10);
+    const filename = `${subject_id}.csv`;
+            
+    /* send data to OSF */
+   const save_data = {
+        type: jsPsychPipe,
+        action: "save",
+        experiment_id: "EhlkOUVAPFEt",
+        filename: filename,
+        data_string: ()=>jsPsych.data.get().csv()
+    };
+
+    window.location = "https://app.prolific.com/submissions/complete?cc=CDCI3CT9"
 
   </script>
 </html>
