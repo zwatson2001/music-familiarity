@@ -21,7 +21,7 @@
 
     var welcome = {
       type: jsPsychHtmlKeyboardResponse,
-      stimulus: `Welcome to the study! Please make sure your sound is on and at a comfortable level. You will hear a series of pre-recorded melodies. 
+      stimulus: `Welcome to the study! You will hear a series of pre-recorded melodies. Please make sure your sound is on and at a comfortable level.
       After each melody, you will be asked if you think you have heard it before. Please answer either yes or no by pressing the 
       'y' or the 'n' key on the keyboard. You should answer yes if the melody sounds familiar to you, even if you cannot 
       remember what it is called or where it is from. None of the melodies are repeated. Press any key to begin.`, 
@@ -56,7 +56,7 @@
         timeline: [playAudio, question],
         timeline_variables: [
             {track: 'prolific_audio_files/mario_unaltered.mp3', track_id: 'mario'},
-            {track: 'prolific_audio_files/entertainer_unaltered.mp3', track_id: 'entertainer'}
+            {track: 'prolific_audio_files/entertainer_unaltered.mp3', track_id: 'entertainer'},
             {track: 'prolific_audio_files/1812_unaltered.mp3', track_id: '1812'},
             {track: 'prolific_audio_files/bach_brandenburg_unaltered.mp3', track_id: 'brandenburg'},
             {track: 'prolific_audio_files/bach_concerto_unaltered.mp3', track_id: 'bach_concerto'},
@@ -123,6 +123,7 @@
             {track: 'prolific_audio_files/bach_goldberg_unaltered.mp3', track_id: 'bach_goldberg'},
             {track: 'prolific_audio_files/taps_unaltered.mp3', track_id: 'taps'}
         ],
+        randomize_order: true, 
         data: {
             track_id: jsPsych.timelineVariable('track_id')
         }
