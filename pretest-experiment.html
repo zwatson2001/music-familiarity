@@ -126,12 +126,6 @@ var jsPsych = initJsPsych({
         stimulus: `This is the end of the study. Thank you for participating! 
         Press any key to complete the experiment and return to Prolific.`
     }; 
-    
-    timeline.push(welcome);
-    timeline.push(audioResponseTimeline); 
-    timeline.push(end_message);
-
-    jsPsych.run(timeline); 
 
     /* generate unique filename */
     const subject_id = jsPsych.randomization.randomID(10);
@@ -145,6 +139,12 @@ var jsPsych = initJsPsych({
         filename: filename,
         data_string: ()=>jsPsych.data.get().csv()
     };
+    
+    timeline.push(welcome);
+    timeline.push(audioResponseTimeline); 
+    timeline.push(end_message);
+
+    jsPsych.run(timeline); 
 
     window.location = "https://app.prolific.com/submissions/complete?cc=CDCI3CT9"
 
