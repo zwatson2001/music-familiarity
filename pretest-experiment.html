@@ -11,6 +11,9 @@
   <script>
 
 var jsPsych = initJsPsych({
+  on_finish: function(){
+    window.location = "https://app.prolific.co/submissions/complete?cc=CDCI3CT9"
+  }
 });
     var timeline = [];
 
@@ -140,6 +143,7 @@ var jsPsych = initJsPsych({
     
     timeline.push(welcome);
     timeline.push(audioResponseTimeline); 
+    timeline.push(save_data);
     timeline.push(end_message);
 
     jsPsych.run(timeline); 
