@@ -13,7 +13,7 @@
 
     var jsPsych = initJsPsych({
         on_finish: function() {
-            jsPsych.data.displayData().filter({type: 'jsPsychHtmlKeyboardResponse'});
+            window.location = "https://app.prolific.co/submissions/complete?cc=CDCI3CT9"
         } 
     });
     
@@ -89,9 +89,9 @@
     /* build timeline */
     timeline.push(welcome);
     timeline.push(audioResponseTimeline)
-    timeline.push(end_message);  
     timeline.push(save_data); 
-
+    timeline.push(end_message);  
+    
     jsPsych.run(timeline); 
 
   </script>
